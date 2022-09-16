@@ -6,7 +6,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const threadLoader = require('thread-loader');
 
+const config = require("./config");
 const paths = require("../paths");
+const styleLoaders = require('./styleLoaders');
 
 // 预先
 threadLoader.warmup(
@@ -19,20 +21,18 @@ threadLoader.warmup(
   ]
 );
 
-const isEnvDevelopment = process.env.NODE_ENV === 'development';
-const isEnvProduction = process.env.NODE_ENV === 'production';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 module.exports = {
-  devtool: isEnvProduction ? (shouldUseSourceMap ? "source-map" : false) : "cheap-module-source-map",
+  devtool: config.isEnvProduction ? (shouldUseSourceMap ? "source-map" : false) : "cheap-module-source-map",
   entry: {
     app: paths.appIndexJS
   },
   output: {
     // webpack有能力在输出包中生成路径信息。然而，这会给捆绑数千个模块的项目带来垃圾收集的压力。
-    pathinfo: isEnvDevelopment,
-    filename: isEnvProduction ? "static/js/[name].[contenthash:8].js" : "static/js/bundle.js",
-    chunkFilename: isEnvProduction ? "static/js/[name].[contenthash:8].chunk.js" : "static/js/[name].chunk.js",
+    pathinfo: config.isEnvDevelopment,
+    filename: config.isEnvProduction ? "static/js/[name].[contenthash:8].js" : "static/js/bundle.js",
+    chunkFilename: config.isEnvProduction ? "static/js/[name].[contenthash:8].chunk.js" : "static/js/[name].chunk.js",
     path: paths.appBuild, // 输出路径
     publicPath: paths.publicUrlOrPath,
   },
@@ -68,6 +68,7 @@ module.exports = {
       },
     },
     rules: [
+      ...styleLoaders(),
       {
         test: /.(?:js|ts|tsx)$/,
         include: paths.appSrc,
@@ -80,7 +81,7 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         type: "asset",
         generator: {
-          filename: isEnvProduction ? "fonts/[name][hash:8].[ext]" : "fonts/[name].[ext]",
+          filename: config.isEnvProduction ? "fonts/[name][hash:8].[ext]" : "fonts/[name].[ext]",
         },
       },
       {
@@ -92,7 +93,7 @@ module.exports = {
           },
         },
         generator: {
-          filename: isEnvProduction ? "images/[name].[hash:8].[ext]" : "images/[name].[ext]",
+          filename: config.isEnvProduction ? "images/[name].[hash:8].[ext]" : "images/[name].[ext]",
         }
       },
     ]
@@ -114,6 +115,6 @@ module.exports = {
   },
   performance: {
     maxEntrypointSize: 300000,
-    hints: isEnvProduction ? "warning" : false, // 打开/关闭提示
+    hints: config.isEnvProduction ? "warning" : false, // 打开/关闭提示
   },
 }
