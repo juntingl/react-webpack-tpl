@@ -5,5 +5,10 @@ const devServer = require('../devServer');
 
 module.exports = merge(baseConfig, {
   mode: "development",
-  devServer
+  devServer,
+  optimization: {
+    removeAvailableModules: false,
+    removeEmptyChunks: false,
+    splitChunks: false,
+  }
 });
