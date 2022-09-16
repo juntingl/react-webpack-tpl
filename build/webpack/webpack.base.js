@@ -54,8 +54,9 @@ module.exports = {
     alias: {
       "src": paths.appSrc,
     },
-    modules: [paths.appNodeModules],
-    mainFields: ["main"],
+    // 解析模块时应该搜索的目录, 相对路径和绝对路径搜索时会有差异，导致某模块寻找不到
+    modules: [paths.appSrc, "node_modules"],
+    mainFields: ["main"]
   },
   /**
    * 使用相关 module 解析各种语言
