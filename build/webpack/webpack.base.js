@@ -70,7 +70,7 @@ module.exports = {
     rules: [
       ...styleLoaders(),
       {
-        test: /.(?:js|ts|tsx)$/,
+        test: config.languageRegex,
         include: paths.appSrc,
         use: [
           "thread-loader",
@@ -78,22 +78,22 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        test: config.fontRegex,
         type: "asset",
         generator: {
-          filename: config.isEnvProduction ? "fonts/[name][hash:8].[ext]" : "fonts/[name].[ext]",
+          filename: config.fontFilename,
         },
       },
       {
-        test: /\.(?:png|jpeg|jpg|svg|gif|bmp)$/,
+        test: config.imageRegex,
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 8 * 1024, // 小于等于 8M 自动转换 base64
+            maxSize: config.imageDataUrlConditionMaxSize, // 小于等于 8M 自动转换 base64
           },
         },
         generator: {
-          filename: config.isEnvProduction ? "images/[name].[hash:8].[ext]" : "images/[name].[ext]",
+          filename: config.imageFilename,
         }
       },
     ]
