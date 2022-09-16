@@ -6,12 +6,39 @@
   "repository": "git@github.com:JuntingLiu/react-webpack-tpl.git",
   "main": "index.ts",
   "scripts": {
-
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
   },
   "keywords": [
     "webpack5",
     "React18",
     "TypeScript"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.23.1",
+    "fork-ts-checker-webpack-plugin": "^7.2.13",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "thread-loader": "^3.0.4",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0",
+    "webpack-merge": "^5.8.0",
+    "webpackbar": "^5.0.2"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "6.4.0-pre.15"
+  }
 }
