@@ -1,0 +1,17 @@
+{
+  "name": "react-webpack-tpl",
+  "version": "0.0.1",
+  "description": "Webpack5 based react scaffolding template.",
+  "author": "Junting <342766475@qq.com>",
+  "repository": "git@github.com:JuntingLiu/react-webpack-tpl.git",
+  "main": "index.ts",
+  "scripts": {
+
+  },
+  "keywords": [
+    "webpack5",
+    "React18",
+    "TypeScript"
+  ],
+  "license": "MIT"
+}
