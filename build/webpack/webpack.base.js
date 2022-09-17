@@ -2,18 +2,17 @@ const fs = require('fs');
 const WebpackBar = require("webpackbar");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// 开启 transpileOnly 后，使用 fork-ts-checker-webpack-plugin 进行类型检查
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const threadLoader = require('thread-loader');
 
 const config = require("./config");
+const alias = require("../alias");
 const paths = require("../paths");
 const styleLoaders = require('./styleLoaders');
 
 // 预先
 threadLoader.warmup(
   {
-    worker: 2
+    // worker: 2
   },
   [
     "babel-loader",
@@ -51,9 +50,7 @@ module.exports = {
    */
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
-    alias: {
-      "src": paths.appSrc,
-    },
+    alias,
     // 解析模块时应该搜索的目录, 相对路径和绝对路径搜索时会有差异，导致某模块寻找不到
     modules: [paths.appSrc, "node_modules"],
     mainFields: ["main"]
@@ -100,7 +97,6 @@ module.exports = {
   },
   plugins: [
     new WebpackBar(),
-    new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: paths.appHtml,
