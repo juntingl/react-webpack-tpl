@@ -22,5 +22,6 @@ module.exports = {
   appIndexJS: resolveApp("src/index"),
   appTsConfig: resolveApp('tsconfig.json'),
   appNodeModules: resolveApp("node_modules"),
+  appLessOptionsModifyVars: resolveApp("src/modifyVars"),
   publicUrlOrPath
 };
