@@ -2,6 +2,7 @@ const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const paths = require("../paths");
@@ -41,22 +42,25 @@ module.exports = merge(baseConfig, {
       new TerserPlugin({
         parallel: true,
       }),
-      new MiniCssExtractPlugin({
-        filename: `static/css/[name].[contenthash:8].css`,
-        ignoreOrder: true,
-      })
+      new CssMinimizerPlugin()
     ],
   },
-  new CleanWebpackPlugin(),
-  new CopyWebpackPlugin({
-    patterns: [
-      {
-        from: paths.appPublic,
-        to: paths.appBuild,
-        globOptions: {
-          ignore: ["**/index.html", "**/.DS_Store"],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: `static/css/[name].[contenthash:8].css`,
+      ignoreOrder: true,
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: paths.appPublic,
+          to: paths.appBuild,
+          globOptions: {
+            ignore: ["**/index.html", "**/.DS_Store"],
+          },
         },
-      },
-    ],
-  })
+      ],
+    })
+  ]
 });
