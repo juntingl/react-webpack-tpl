@@ -38,25 +38,25 @@ module.exports = merge(baseConfig, {
       },
     },
     minimizer: [
-      new CleanWebpackPlugin(),
       new TerserPlugin({
         parallel: true,
       }),
       new MiniCssExtractPlugin({
         filename: `static/css/[name].[contenthash:8].css`,
         ignoreOrder: true,
-      }),
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: paths.appPublic,
-            to: paths.appBuild,
-            globOptions: {
-              ignore: ["**/index.html", "**/.DS_Store"],
-            },
-          },
-        ],
       })
     ],
-  }
+  },
+  new CleanWebpackPlugin(),
+  new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: paths.appPublic,
+        to: paths.appBuild,
+        globOptions: {
+          ignore: ["**/index.html", "**/.DS_Store"],
+        },
+      },
+    ],
+  })
 });
