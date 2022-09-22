@@ -1,5 +1,6 @@
 /**
- * 🎨 上色器
+ * 🎨 clog
+ * Colourful console log.
  * @Author: Junting
  * @Date: 2022-09-20 13:53:06
  * @Last Modified by: Junting
