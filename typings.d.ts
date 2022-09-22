@@ -14,3 +14,7 @@ declare module "*.json" {
   const value: any;
   export default value;
 }
+
+interface Window {
+  clog: Record<string, any>
+}
