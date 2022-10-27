@@ -14,7 +14,7 @@ module.exports = {
   },
   compress: true,
   host: "0.0.0.0",
-  port: 9090,
+  port: 9001,
   hot: true,
   open: true,
   client: {
@@ -25,7 +25,7 @@ module.exports = {
   //   "/api": {
   //     target: "",
   //     changeOrigin: true,
-  //     rewrite: (p) => p.replace(/^\/api/, ""),
+  //     pathRewrite: (p) => p.replace(/^\/api/, ""),
   //   },
   // },
 };

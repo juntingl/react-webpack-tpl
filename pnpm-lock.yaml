@@ -11,6 +11,7 @@ specifiers:
   antd: ^4.23.1
   babel-loader: ^8.2.5
   babel-plugin-import: ^1.13.5
+  c-log-kit: ^0.0.4
   clean-webpack-plugin: ^4.0.0
   copy-webpack-plugin: ^11.0.0
   cross-env: ^7.0.3
@@ -42,6 +43,7 @@ dependencies:
   '@types/react': 18.0.20
   '@types/react-dom': 18.0.6
   antd: 4.23.1_biqbaboplfbrettd7655fr4n2y
+  c-log-kit: 0.0.4
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.4.0-pre.15_biqbaboplfbrettd7655fr4n2y
@@ -2155,6 +2157,12 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
+  /c-log-kit/0.0.4:
+    resolution: {integrity: sha512-rLUI+H+i8PBewlqF97Nge6hYWDL7cbfPvKyO9QQEvYmx3pcXKd4i4YXNQzBhm8NiFOPNQ3XiBB8t3hUrO3fI2Q==}
+    dependencies:
+      rollup: 2.79.1
+    dev: false
+
   /call-bind/1.0.2:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
     dependencies:
@@ -3202,7 +3210,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -5442,6 +5449,14 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
+
+  /rollup/2.79.1:
+    resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}

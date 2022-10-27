@@ -15,6 +15,4 @@ declare module "*.json" {
   export default value;
 }
 
-interface Window {
-  clog: Record<string, any>
-}
+declare module 'c-log-kit';

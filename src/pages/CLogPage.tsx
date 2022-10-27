@@ -1,7 +1,11 @@
-import { ChromeOutlined } from "@ant-design/icons";
 import "./clog.less";
 
+import cLog from 'c-log-kit';
+
+cLog.hello();
+
 const CLogPage = () => {
+
   return (
     <div className="clog-page">
       <header className="header">
@@ -169,7 +173,7 @@ const CLogPage = () => {
             }
           </pre>
           <div className="bar">
-            <button onClick={() => console.log('Mr. Dump is not', 2, {property: 'smart'})}>Test in your br/owser</button>
+            <button onClick={() => console.log('Mr. Dump is not', 2, { property: 'smart' })}>Test in your br/owser</button>
           </div>
           <h3>Output</h3>
           <div className="output">
@@ -179,12 +183,12 @@ const CLogPage = () => {
         {/* <!-- console.dir --> */}
         <article className="grid-item">
           <h2 className="monospace">console.dir</h2>
-          <p>在控制台中显示指定 JavaScript 对象的属性，并通过类似文件树样式的交互列表显示。<br /><code>console.dir</code> 最佳用途打印 DOM 元素的对象。
+          <div>在控制台中显示指定 JavaScript 对象的属性，并通过类似文件树样式的交互列表显示。 <br /><code>console.dir</code> 最佳用途打印 DOM 元素的对象。
             <ul>
               <li>打印一个类似于 HTML 的树状结构中</li>
               <li>打印一个类似JSON的树中</li>
             </ul>
-          </p>
+          </div>
           <h3>Syntax</h3>
           <pre className="syntax">console.dir(object);</pre>
           <h3>Example</h3>
@@ -194,7 +198,7 @@ const CLogPage = () => {
             }
           </pre>
           <div className="bar">
-            <button onClick={() => console.dir({property: 'smart'})}>Test in your br/owser</button>
+            <button onClick={() => console.dir({ property: 'smart' })}>Test in your br/owser</button>
           </div>
           <h3>Output</h3>
           <div className="output">
@@ -236,8 +240,8 @@ const CLogPage = () => {
         <article className="grid-item">
           <h2 className="monospace">console.assert</h2>
           <p>如果断言为 `false`，则将一个错误消息写入控制台；如果断言为 `true`, 则没有任何反应。</p>
-          <p className="note"><strong>Note:</strong><br/>
-          `console.assert()` 方法在 Node.js 中实现和浏览器的实现是不同的。在浏览器中当 `console.assert()`  方法接收一个值为假的时候，会向控制台输出一个错误消息，但是并不会中断代码的执行。而在 Node.js v10.0.0 之前，一个值为假，也会抛出一个 `AssertionError` ，但是会打断程序的执行。</p>
+          <p className="note"><strong>Note:</strong><br />
+            `console.assert()` 方法在 Node.js 中实现和浏览器的实现是不同的。在浏览器中当 `console.assert()`  方法接收一个值为假的时候，会向控制台输出一个错误消息，但是并不会中断代码的执行。而在 Node.js v10.0.0 之前，一个值为假，也会抛出一个 `AssertionError` ，但是会打断程序的执行。</p>
           <h3>Syntax</h3>
           <pre className="syntax">console.assert(assertion, msg1 [, msg2, ..., msgN]);</pre>
           <h3>Example</h3>
@@ -253,7 +257,7 @@ const CLogPage = () => {
           </pre>
           <div className="bar">
             <button onClick={() => {
-              var  isValid = false;
+              var isValid = false;
               console.assert(isValid, 'Mr. Dump is not here.');
             }}>Test in your br/owser</button>
           </div>
@@ -267,7 +271,7 @@ const CLogPage = () => {
           <h2 className="monospace">console.table</h2>
           <p>将数据以表格的形式显示。这个函数需要一个必须的参数 data，它必须是一个数组或一个对象，以及一个额外的可选参数columns。</p>
           <p className="note">
-            <strong>Note:</strong><br/>
+            <strong>Note:</strong><br />
             在Firefox中，console.table 只能显示 1000 行（第一行是标记的索引）。
           </p>
           <p className="note">
@@ -277,7 +281,7 @@ const CLogPage = () => {
           <pre className="syntax">console.table(data [, [column1, ..., columnN] ]);</pre>
           <h3>Example 1</h3>
           <pre>
-          {`
+            {`
 // array of strings
 console.table([ ["apples", "oranges", "bananas"] ]);
           `}
@@ -286,32 +290,32 @@ console.table([ ["apples", "oranges", "bananas"] ]);
             <button onClick={() => {
               console.table([[" apples", "oranges", "bananas"]]);
             }}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output table">
-          <table>
-            <thead>
-              <tr>
-                <th>(index)</th>
-                <th>0</th>
-                <th>1</th>
-                <th>2</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td className="red">"apples"</td>
-                <td className="red">"oranges"</td>
-                <td className="red">"bananas"</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3>Example 2</h3>
-        <pre>
-          {
-            `
+          </div>
+          <h3>Output</h3>
+          <div className="output table">
+            <table>
+              <thead>
+                <tr>
+                  <th>(index)</th>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td className="red">"apples"</td>
+                  <td className="red">"oranges"</td>
+                  <td className="red">"bananas"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Example 2</h3>
+          <pre>
+            {
+              `
 function Person(firstName, lastName, age) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -326,64 +330,64 @@ family.son = new Person("Mike", "Doyle", 8);
 
 console.table(family, ["firstName", "age"]);
             `
-          }
-        </pre>
-        <div className="bar">
-          <button onClick={() => console.log("tableMethod()")}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output table">
-          <table>
-            <thead>
-              <tr>
-                <th>(index)</th>
-                <th>firstName</th>
-                <th>age</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>mother</td>
-                <td className="red">"Lea"</td>
-                <td className="blue">32</td>
-              </tr>
-              <tr>
-                <td>father</td>
-                <td className="red">"Jan"</td>
-                <td className="blue">33</td>
-              </tr>
-              <tr>
-                <td>daughter</td>
-                <td className="red">"Julia"</td>
-                <td className="blue">6</td>
-              </tr>
-              <tr>
-                <td>son</td>
-                <td className="red">"Nicolas"</td>
-                <td className="blue">15</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-      {/* <!-- console.clear --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.clear</h2>
-        <p>清空控制台。</p>
-        <h3>Syntax</h3>
-        <pre className="syntax">console.clear();</pre>
-      </article>
-      {/* <!-- console.count --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.count</h2>
-        <p>输出 `count()` 被调用的次数。此函数接受一个可选参数 `label`(字符串)。如果有 `label` ，此函数输出为该 `label` 和 `count()` 被调用的次数。</p>
-        <p>如果 `label` 未设置(默认“default”)，此函数输出` count() `在其所处位置上被调用的次数。</p>
-        <h3>Syntax</h3>
-        <pre className="syntax">console.count();</pre>
-        <h3>Example</h3>
-        <pre>
-          {
-            `
+            }
+          </pre>
+          <div className="bar">
+            <button onClick={() => console.log("tableMethod()")}>Test in your br/owser</button>
+          </div>
+          <h3>Output</h3>
+          <div className="output table">
+            <table>
+              <thead>
+                <tr>
+                  <th>(index)</th>
+                  <th>firstName</th>
+                  <th>age</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>mother</td>
+                  <td className="red">"Lea"</td>
+                  <td className="blue">32</td>
+                </tr>
+                <tr>
+                  <td>father</td>
+                  <td className="red">"Jan"</td>
+                  <td className="blue">33</td>
+                </tr>
+                <tr>
+                  <td>daughter</td>
+                  <td className="red">"Julia"</td>
+                  <td className="blue">6</td>
+                </tr>
+                <tr>
+                  <td>son</td>
+                  <td className="red">"Nicolas"</td>
+                  <td className="blue">15</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        {/* <!-- console.clear --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.clear</h2>
+          <p>清空控制台。</p>
+          <h3>Syntax</h3>
+          <pre className="syntax">console.clear();</pre>
+        </article>
+        {/* <!-- console.count --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.count</h2>
+          <p>输出 `count()` 被调用的次数。此函数接受一个可选参数 `label`(字符串)。如果有 `label` ，此函数输出为该 `label` 和 `count()` 被调用的次数。</p>
+          <p>如果 `label` 未设置(默认“default”)，此函数输出` count() `在其所处位置上被调用的次数。</p>
+          <h3>Syntax</h3>
+          <pre className="syntax">console.count();</pre>
+          <h3>Example</h3>
+          <pre>
+            {
+              `
 function login(name) {
   console.count(name + ' logged in');
 }
@@ -393,38 +397,38 @@ login("Mike");
 login("Bob");
 login("Bob");
             `
-          }
-        </pre>
-        <div className="bar">
-          <button onClick={() => console.log("testCount()")}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output">
-          <span className="blue">Bob logged in: 1</span><br />
-          <span className="blue">Mike logged in: 1</span><br />
-          <span className="blue">Bob logged in: 2</span><br />
-          <span className="blue">Bob logged in: 3</span>
-        </div>
-      </article>
-      {/* <!-- console.time --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.time</h2>
-        <p>
-          启动一个新的定时器。调用 `console.timeEnd()` 来停止定时器，并将经过的时间打印到Console上。
-        </p>
-        <p>
-        传递一个可选的标签，以改变在经过的时间之前的输出文本。用相同的标签调用`console.timeEnd()`来停止定时器。<br /> 可使用标签来同时运行多个定时器。
-        </p>
-        <h3>Syntax</h3>
-        <pre className="syntax">
-          console.time([label]);
-          ...
-          console.timeEnd([label]);
-        </pre>
-        <h3>Example</h3>
-        <pre>
-          {
-            `
+            }
+          </pre>
+          <div className="bar">
+            <button onClick={() => console.log("testCount()")}>Test in your br/owser</button>
+          </div>
+          <h3>Output</h3>
+          <div className="output">
+            <span className="blue">Bob logged in: 1</span><br />
+            <span className="blue">Mike logged in: 1</span><br />
+            <span className="blue">Bob logged in: 2</span><br />
+            <span className="blue">Bob logged in: 3</span>
+          </div>
+        </article>
+        {/* <!-- console.time --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.time</h2>
+          <p>
+            启动一个新的定时器。调用 `console.timeEnd()` 来停止定时器，并将经过的时间打印到Console上。
+          </p>
+          <p>
+            传递一个可选的标签，以改变在经过的时间之前的输出文本。用相同的标签调用`console.timeEnd()`来停止定时器。<br /> 可使用标签来同时运行多个定时器。
+          </p>
+          <h3>Syntax</h3>
+          <pre className="syntax">
+            console.time([label]);
+            ...
+            console.timeEnd([label]);
+          </pre>
+          <h3>Example</h3>
+          <pre>
+            {
+              `
 console.time();
 var arr = new Array(10000);
 for (var i = 0; i < arr.length; i++) {
@@ -432,18 +436,18 @@ for (var i = 0; i < arr.length; i++) {
 }
 console.timeEnd();
             `
-          }
-        </pre>
-        <div className="bar">
-          <button onClick={() => console.log("testTime()")}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output">
-          <span className="blue">default: 3.35ms</span>
-        </div>
-        <h3>Example multiple usage</h3>
-        <pre>
-          {`
+            }
+          </pre>
+          <div className="bar">
+            <button onClick={() => console.log("testTime()")}>Test in your br/owser</button>
+          </div>
+          <h3>Output</h3>
+          <div className="output">
+            <span className="blue">default: 3.35ms</span>
+          </div>
+          <h3>Example multiple usage</h3>
+          <pre>
+            {`
 console.time('total');
 console.time('init arr');
 var arr = new Array(10000);
@@ -453,31 +457,31 @@ for (var i = 0; i < arr.length; i++) {
 }
 console.timeEnd('total');
           `}
-        </pre>
-        <div className="bar">
-          <button onClick={() => console.log("testTimeMultiple()")}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output">
-          <span className="blue">init arr: 0.0720ms</span><br /><span className="blue">total: 4.34ms</span>
-        </div>
-      </article>
-      {/* <!-- console.group --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.group</h2>
-        <p>
-        启动一个新的组。调用`console.groupEnd()`来关闭组。<br />你也可以对组进行嵌套。
-        </p>
-        <p className="note">要显示已创建的组的折叠，请使用 <strong>console.groupCollapsed</strong></p>
-        <h3>Syntax</h3>
-        <pre className="syntax">
-          console.group(msg [, msg1, ..., msgN]);
-          ...
-          console.groupEnd(msg [, msg1, ..., msgN]);
-        </pre>
-        <h3>Example</h3>
-        <pre>
-          {`
+          </pre>
+          <div className="bar">
+            <button onClick={() => console.log("testTimeMultiple()")}>Test in your br/owser</button>
+          </div>
+          <h3>Output</h3>
+          <div className="output">
+            <span className="blue">init arr: 0.0720ms</span><br /><span className="blue">total: 4.34ms</span>
+          </div>
+        </article>
+        {/* <!-- console.group --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.group</h2>
+          <p>
+            启动一个新的组。调用`console.groupEnd()`来关闭组。<br />你也可以对组进行嵌套。
+          </p>
+          <p className="note">要显示已创建的组的折叠，请使用 <strong>console.groupCollapsed</strong></p>
+          <h3>Syntax</h3>
+          <pre className="syntax">
+            console.group(msg [, msg1, ..., msgN]);
+            ...
+            console.groupEnd(msg [, msg1, ..., msgN]);
+          </pre>
+          <h3>Example</h3>
+          <pre>
+            {`
 function name(obj) {
   console.group('name');
   console.log('first: ', obj.first);
@@ -488,20 +492,20 @@ function name(obj) {
 
 name({"first":"Wile","middle":"E","last":"Coyote"});
           `}
-        </pre>
-        <div className="bar">
-          <button onClick={() => console.log("testGroup()")}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output">
-          <i className="fa fa-caret-down grey" aria-hidden="true"></i> <strong>name</strong><br />
-          <span className="tab"></span>first:  Wile<br />
-          <span className="tab"></span>middle:  E<br />
-          <span className="tab"></span>last:  Coyote<br />
-        </div>
-        <h3>Example nested usage</h3>
-        <pre>
-          {`
+          </pre>
+          <div className="bar">
+            <button onClick={() => console.log("testGroup()")}>Test in your br/owser</button>
+          </div>
+          <h3>Output</h3>
+          <div className="output">
+            <i className="fa fa-caret-down grey" aria-hidden="true"></i> <strong>name</strong><br />
+            <span className="tab"></span>first:  Wile<br />
+            <span className="tab"></span>middle:  E<br />
+            <span className="tab"></span>last:  Coyote<br />
+          </div>
+          <h3>Example nested usage</h3>
+          <pre>
+            {`
 function name(obj) {
   console.group('name');
   console.log('first: ', obj.first);
@@ -518,60 +522,60 @@ function doStuff() {
 
 doStuff();
           `}
-        </pre>
-        <div className="bar">
-          <button onClick={() => console.log("testGroupNested()")}>Test in your br/owser</button>
-        </div>
-        <h3>Output</h3>
-        <div className="output">
-          <i className="fa fa-caret-down grey" aria-hidden="true"></i> <strong>doStuff()</strong><br />
-          <span className="tab"></span><i className="fa fa-caret-down grey" aria-hidden="true"></i> <strong>name</strong><br />
-          <span className="tab"></span><span className="tab"></span>first:  Wile<br />
-          <span className="tab"></span><span className="tab"></span>middle:  E<br />
-          <span className="tab"></span><span className="tab"></span>last:  Coyote<br />
-        </div>
-      </article>
-      {/* <!-- console.groupCollapsed --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.groupCollapsed</h2>
-        <p>和 `console.group()` 功能类似，不同的是，新建的分组默认是折叠的，用户必须点击一个按钮才能将折叠的内容打开。</p>
-        <h3>Syntax</h3>
-        <pre className="syntax">
-          console.groupCollapsed(msg [, msg1, ..., msgN]);
-          ...
-          console.groupEnd(msg [, msg1, ..., msgN]);
-        </pre>
-      </article>
-      {/* <!-- console.timeStamp --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.timeStamp</h2>
-        <p>向浏览器的
-          <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference"> Performance </a>
-          或者
-          <a href="https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html"> Waterfall </a>
-          工具添加一个标记。这样可以让你将代码中的一个点和其他在时间轴上已记录的事件相关联，例如布局事件和绘制事件等。
-        </p>
-        <p>你可以选择用一个参数来作为时间戳标签，然后标记旁边就会显示这个标签。</p>
-        <h3>Syntax</h3>
-        <pre className="syntax">console.timeStamp([label]);</pre>
-      </article>
-      {/* <!-- console.profile --> */}
-      <article className="grid-item">
-        <h2 className="monospace">console.profile</h2>
-        <p>开始记录性能描述信息 。可以提供一个 `profileName` (字符串) 参数来命名描述信息，这将允许你在有多个描述信息被记录时来选择只停止那个描述信息（被你命名的那个）。</p>
-        <h3>Syntax</h3>
-        <pre className="syntax">console.profile([label]);</pre>
-        <h3>Example</h3>
-        <pre>
-          {`
+          </pre>
+          <div className="bar">
+            <button onClick={() => console.log("testGroupNested()")}>Test in your br/owser</button>
+          </div>
+          <h3>Output</h3>
+          <div className="output">
+            <i className="fa fa-caret-down grey" aria-hidden="true"></i> <strong>doStuff()</strong><br />
+            <span className="tab"></span><i className="fa fa-caret-down grey" aria-hidden="true"></i> <strong>name</strong><br />
+            <span className="tab"></span><span className="tab"></span>first:  Wile<br />
+            <span className="tab"></span><span className="tab"></span>middle:  E<br />
+            <span className="tab"></span><span className="tab"></span>last:  Coyote<br />
+          </div>
+        </article>
+        {/* <!-- console.groupCollapsed --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.groupCollapsed</h2>
+          <p>和 `console.group()` 功能类似，不同的是，新建的分组默认是折叠的，用户必须点击一个按钮才能将折叠的内容打开。</p>
+          <h3>Syntax</h3>
+          <pre className="syntax">
+            console.groupCollapsed(msg [, msg1, ..., msgN]);
+            ...
+            console.groupEnd(msg [, msg1, ..., msgN]);
+          </pre>
+        </article>
+        {/* <!-- console.timeStamp --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.timeStamp</h2>
+          <p>向浏览器的
+            <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference"> Performance </a>
+            或者
+            <a href="https://firefox-source-docs.mozilla.org/devtools-user/performance/waterfall/index.html"> Waterfall </a>
+            工具添加一个标记。这样可以让你将代码中的一个点和其他在时间轴上已记录的事件相关联，例如布局事件和绘制事件等。
+          </p>
+          <p>你可以选择用一个参数来作为时间戳标签，然后标记旁边就会显示这个标签。</p>
+          <h3>Syntax</h3>
+          <pre className="syntax">console.timeStamp([label]);</pre>
+        </article>
+        {/* <!-- console.profile --> */}
+        <article className="grid-item">
+          <h2 className="monospace">console.profile</h2>
+          <p>开始记录性能描述信息 。可以提供一个 `profileName` (字符串) 参数来命名描述信息，这将允许你在有多个描述信息被记录时来选择只停止那个描述信息（被你命名的那个）。</p>
+          <h3>Syntax</h3>
+          <pre className="syntax">console.profile([label]);</pre>
+          <h3>Example</h3>
+          <pre>
+            {`
 function processPixels() {
   console.profile("processPixels()");
   // later, after processing pixels
   console.profileEnd();
 }
           `}
-        </pre>
-      </article>
+          </pre>
+        </article>
       </main>
     </div>
   );
