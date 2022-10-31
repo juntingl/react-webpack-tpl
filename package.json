@@ -19,12 +19,6 @@
   ],
   "license": "MIT",
   "homepage": "./",
-  "husky": {
-    "hooks": {
-      "pre-commit": "node scripts/check-gitlab-user.js && lint-staged",
-      "commit-msg": "node scripts/check-commit.js"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
       "prettier --write"

@@ -3,7 +3,7 @@
  * @file check user email
  */
 
-const chalk = require('chalk');
+const chalk = require("chalk");
 const author = process.env.GIT_AUTHOR_EMAIL;
 
 const checkAuthor = (author) => {
@@ -11,9 +11,7 @@ const checkAuthor = (author) => {
 };
 if (!checkAuthor(author)) {
   throw (
-    `${chalk.bgRed.white(' ERROR ')} ${chalk.red(
-      `Please submit using an email account`,
-    )}\n\n` +
+    `${chalk.bgRed.white(" ERROR ")} ${chalk.red(`Please submit using an email account`)}\n\n` +
     chalk.white(`Please change your account and try submitting again\n`)
   );
 }
