@@ -4,8 +4,9 @@ module.exports = {
     [
       "@babel/preset-react",
       {
-        "runtime": "automatic", // 自动注入运行时代码
-      }
+        runtime: "automatic", // 自动注入运行时代码
+        importSource: "@emotion/react",
+      },
     ],
     "@babel/preset-typescript",
   ],
@@ -14,10 +15,10 @@ module.exports = {
       // 按需引入 antd 样式
       "import",
       {
-        "libraryName": "antd",
-        "libraryDirectory": "es",
-        "style": true
-      }
+        libraryName: "antd",
+        libraryDirectory: "es",
+        style: true,
+      },
     ],
   ],
 };

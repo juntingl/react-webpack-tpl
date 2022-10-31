@@ -23,9 +23,12 @@ module.exports = {
     },
   },
   rules: {
+    "react/no-unknown-property": ["error", { ignore: ["css"] }],
     quotes: ["error", "double"],
     "react/jsx-wrap-multilines": "error",
     "react/react-in-jsx-scope": "off",
+    // TypeScript ESLint
     "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/consistent-type-imports": "warn",
   },
 };

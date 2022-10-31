@@ -1,12 +1,11 @@
 const { merge } = require("webpack-merge");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const paths = require("../paths");
-const baseConfig  = require('./webpack.base');
+const baseConfig = require("./webpack.base");
 
 module.exports = merge(baseConfig, {
   mode: "production",
@@ -42,11 +41,10 @@ module.exports = merge(baseConfig, {
       new TerserPlugin({
         parallel: true,
       }),
-      new CssMinimizerPlugin()
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `static/css/[name].[contenthash:8].css`,
       ignoreOrder: true,
@@ -61,6 +59,6 @@ module.exports = merge(baseConfig, {
           },
         },
       ],
-    })
-  ]
+    }),
+  ],
 });

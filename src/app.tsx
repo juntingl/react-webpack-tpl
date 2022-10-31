@@ -1,11 +1,9 @@
 import "global.less";
 
+import MainLayout from "@/components/main-layout";
+
 const App = () => {
-  return (
-    <div>
-      <h1>React</h1>
-    </div>
-  );
+  return <MainLayout></MainLayout>;
 };
 
 export default App;

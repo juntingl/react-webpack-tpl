@@ -22,5 +22,6 @@
     },
     "types": ["node"]
   },
-  "include": ["src", "typings.d.ts"]
+  "include": ["src", "typings.d.ts"],
+  "exclude": ["build"]
 }
