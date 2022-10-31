@@ -8,9 +8,9 @@ export const capitalizeFirstLetter = (str: string) =>
 
 /**
  * 获取类型
- * @param {any} data
+ * @param {unknown} data
  */
-export const typeOf = (data: any) => {
+export const typeOf = (data: unknown) => {
   const toString = Object.prototype.toString;
   const map = {
     "[object Boolean]": "boolean",
@@ -25,7 +25,5 @@ export const typeOf = (data: any) => {
     "[object Function]": "function",
     "[object Date]": "date",
   } as const;
-  return map[
-    toString.call(data) as keyof typeof map
-  ];
+  return map[toString.call(data) as keyof typeof map];
 };
