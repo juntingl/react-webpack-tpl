@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "ssss:$(dirname)";
+echo "ssss: dirname";
 
 #node ../scripts/check-gitlab-user.js && lint-staged
