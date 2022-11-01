@@ -23,8 +23,9 @@ module.exports = {
     },
   },
   rules: {
-    "react/no-unknown-property": ["error", { ignore: ["css"] }],
     quotes: ["error", "double"],
+    "react/prop-types": 0,
+    "react/no-unknown-property": ["error", { ignore: ["css"] }],
     "react/jsx-wrap-multilines": "error",
     "react/react-in-jsx-scope": "off",
     // TypeScript ESLint

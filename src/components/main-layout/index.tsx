@@ -16,7 +16,7 @@ const MainLayout = () => {
 
   return (
     <div className="flex">
-      <Navigation />
+      <Navigation collapsed={collapsed} title="BIU" />
 
       <section
         className="flex flex-col flex-1"
@@ -41,7 +41,7 @@ const MainLayout = () => {
 
           <NavRightContent />
         </header>
-        <main className="">Main</main>
+        <main className="h-full bg-gray-50">Main</main>
       </section>
     </div>
   );
