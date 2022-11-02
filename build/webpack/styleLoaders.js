@@ -3,11 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const config = require("./config");
 const paths = require("../paths");
 
-const generatorStyleLoaders = (
-  cssOptions,
-  preProcessor,
-  preProcessorOptions
-) => {
+const generatorStyleLoaders = (cssOptions, preProcessor, preProcessorOptions) => {
   const loaders = [
     config.isEnvDevelopment && "style-loader",
     config.isEnvProduction && {
@@ -69,11 +65,11 @@ module.exports = () => {
         {
           lessOptions: {
             modifyVars: {
-              "primary-color": "#ff7a45",
+              // "primary-color": "#ff7a45",
             },
             javascriptEnabled: true,
           },
-        }
+        },
       ),
       sideEffects: true,
     },

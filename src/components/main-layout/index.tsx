@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/react";
 
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
@@ -9,7 +9,9 @@ import NavRightContent from "./NavRightContent";
 
 const headerHeight = 48;
 
-const MainLayout = () => {
+const MainLayout: React.FC<{
+  children?: React.ReactNode;
+}> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const TriggerIcon = collapsed ? MenuUnfoldOutlined : MenuFoldOutlined;
@@ -18,12 +20,7 @@ const MainLayout = () => {
     <div className="flex">
       <Navigation collapsed={collapsed} title="BIU" />
 
-      <section
-        className="flex flex-col flex-1"
-        css={css`
-          height: 1200px;
-        `}
-      >
+      <section className="flex flex-col flex-1">
         <header
           css={css`
             box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
@@ -41,7 +38,7 @@ const MainLayout = () => {
 
           <NavRightContent />
         </header>
-        <main className="h-full bg-gray-50">Main</main>
+        <main className="h-full bg-gray-50">{children}</main>
       </section>
     </div>
   );
