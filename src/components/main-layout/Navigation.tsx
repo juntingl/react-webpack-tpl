@@ -11,9 +11,10 @@ import BiuLogo from "@/assets/biu-logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navigation: React.FC<{
+  theme?: "light" | "dark";
   collapsed?: boolean;
   title?: string;
-}> = ({ collapsed, title }) => {
+}> = ({ theme = "light", collapsed, title }) => {
   const authRoutes = useAuthenticatedRoutes();
   const location = useLocation();
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Navigation: React.FC<{
 
   return (
     <Layout.Sider
-      theme="light"
+      theme={theme}
       width={208}
       collapsedWidth={60}
       collapsed={collapsed}
@@ -55,7 +56,7 @@ const Navigation: React.FC<{
       </ClassNames>
 
       <Menu
-        theme="light"
+        theme={theme}
         mode="inline"
         items={items}
         defaultOpenKeys={!collapsed ? relatedKeys : []}
