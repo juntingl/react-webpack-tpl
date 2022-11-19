@@ -16,3 +16,8 @@ declare module "*.json" {
 }
 
 declare module 'c-log-kit';
+
+// 扩展 window 全局的属性
+declare interface Window {
+  $$: (selector: string) => JQuery;
+}

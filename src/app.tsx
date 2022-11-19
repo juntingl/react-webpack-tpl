@@ -9,12 +9,9 @@ import CLogPage from "./pages/CLogPage";
 const App = () => {
   return (
     <div>
-      {/* <h1>React App</h1> */}
-        {/* <Button type="primary">按钮</Button>
-        <RadarChartOutlined />
-        <br />
-        <HomePage /> */}
-        <CLogPage></CLogPage>
+      <h1>React App</h1>
+        <HomePage />
+        {/* <CLogPage></CLogPage> */}
     </div>
   )
 }
