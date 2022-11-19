@@ -3,7 +3,7 @@
  * @Author: Junting
  * @Date: 2022-11-19 09:56:54
  * @Last Modified by: Junting
- * @Last Modified time: 2022-11-19 10:23:46
+ * @Last Modified time: 2022-11-19 10:29:11
  */
 
 // 扩展 window 全局的属性
@@ -47,6 +47,7 @@ class JQuery {
 
 // 用工厂模式
 window.$$ = (selector: string) =>{
+  // 内部还有处理各种情况的逻辑去处理不同传入时不同的工作方式
   return new JQuery(selector);
 };
 
