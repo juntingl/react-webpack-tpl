@@ -1,5 +1,5 @@
-const isEnvDevelopment = process.env.NODE_ENV === 'development';
-const isEnvProduction = process.env.NODE_ENV === 'production';
+const isEnvDevelopment = process.env.NODE_ENV === "development";
+const isEnvProduction = process.env.NODE_ENV === "production";
 
 // Languages regex
 const languageRegex = /.(?:js|ts|tsx)$/;
@@ -17,9 +17,12 @@ const fontRegex = /\.(woff|woff2|eot|ttf|otf)$/;
 const imageRegex = /\.(?:png|jpeg|jpg|svg|gif|bmp)$/;
 
 const fontFilename = isEnvProduction ? "static/fonts/[name][hash:8].[ext]" : "fonts/[name].[ext]";
-const imageFilename = isEnvProduction ? "static/images/[name].[hash:8].[ext]" : "images/[name].[ext]";
+const imageFilename = isEnvProduction
+  ? "static/images/[name].[hash:8].[ext]"
+  : "images/[name].[ext]";
 
 module.exports = {
+  isLazyCompilation: false,
   isEnvDevelopment,
   isEnvProduction,
   languageRegex,
@@ -33,5 +36,5 @@ module.exports = {
   imageRegex,
   fontFilename,
   imageFilename,
-  imageDataUrlConditionMaxSize: 8 * 1024
+  imageDataUrlConditionMaxSize: 8 * 1024,
 };

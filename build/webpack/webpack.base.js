@@ -1,24 +1,15 @@
 const fs = require("fs");
+const cpus = require("os").cpus();
 const WebpackBar = require("webpackbar");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const threadLoader = require("thread-loader");
+// 开启 transpileOnly 后，使用 fork-ts-checker-webpack-plugin 进行类型检查
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const config = require("./config");
 const alias = require("../alias");
 const paths = require("../paths");
 const styleLoaders = require("./styleLoaders");
-
-// 预先
-threadLoader.warmup(
-  {
-    // worker: 2
-  },
-  [
-    "babel-loader",
-    // "sass-loader"
-  ],
-);
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== "false";
 
@@ -54,6 +45,9 @@ module.exports = {
       tsconfig: [paths.appTsConfig].filter((f) => fs.existsSync(f)),
     },
   },
+  experiments: {
+    lazyCompilation: config.isLazyCompilation,
+  },
   /**
    * 解析文件规则
    */
@@ -78,7 +72,25 @@ module.exports = {
       {
         test: config.languageRegex,
         include: paths.appSrc,
-        use: ["thread-loader", "babel-loader"],
+        use: [
+          {
+            loader: "thread-loader",
+            options: {
+              workers: cpus.length - 1,
+            },
+          },
+          {
+            loader: "babel-loader",
+            options: {
+              cacheDirectory: true,
+              cacheCompression: false,
+              compact: false,
+              plugins: [config.isEnvDevelopment && require.resolve("react-refresh/babel")].filter(
+                Boolean,
+              ),
+            },
+          },
+        ],
       },
       {
         test: config.fontRegex,
@@ -92,7 +104,7 @@ module.exports = {
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: config.imageDataUrlConditionMaxSize, // 小于等于 8M 自动转换 base64
+            maxSize: config.imageDataUrlConditionMaxSize, // 小于等于 8KB 自动转换 base64
           },
         },
         generator: {
@@ -116,7 +128,7 @@ module.exports = {
     ignored: /node_modules/,
   },
   performance: {
-    maxEntrypointSize: 300000,
+    maxEntrypointSize: 300 * 1024,
     hints: config.isEnvProduction ? "warning" : false, // 打开/关闭提示
   },
 };

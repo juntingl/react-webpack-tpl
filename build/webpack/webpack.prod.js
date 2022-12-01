@@ -12,6 +12,14 @@ module.exports = merge(baseConfig, {
   optimization: {
     moduleIds: "deterministic",
     // runtimeChunk: "single",
+    usedExports: true,
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+      }),
+      new CssMinimizerPlugin(),
+    ],
     splitChunks: {
       chunks: "all",
       // maxInitialRequests: 3,
@@ -37,12 +45,9 @@ module.exports = merge(baseConfig, {
         },
       },
     },
-    minimizer: [
-      new TerserPlugin({
-        parallel: true,
-      }),
-      new CssMinimizerPlugin(),
-    ],
+    // runtimeChunk: {
+    //   name: (entrypoint) => `runtime~${entrypoint.name}`,
+    // }
   },
   plugins: [
     new MiniCssExtractPlugin({
