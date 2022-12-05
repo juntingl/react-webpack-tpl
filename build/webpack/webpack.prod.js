@@ -10,7 +10,7 @@ const baseConfig = require("./webpack.base");
 module.exports = merge(baseConfig, {
   mode: "production",
   optimization: {
-    moduleIds: "deterministic",
+    // moduleIds: "deterministic", // 采用默认
     // runtimeChunk: "single",
     usedExports: true,
     minimize: true,
