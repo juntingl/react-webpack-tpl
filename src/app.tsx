@@ -2,7 +2,7 @@ import "global.less";
 
 import { BrowserRouter } from "react-router-dom";
 
-import MainLayout from "@/components/main-layout";
+import MainLayout from "@/components/MainLayout";
 import { RoutesComponent } from "./router";
 import { Suspense } from "react";
 import { Spin } from "antd";

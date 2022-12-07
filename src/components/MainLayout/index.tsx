@@ -38,7 +38,7 @@ const MainLayout: React.FC<{
 
           <NavRightContent />
         </header>
-        <main className="h-full bg-gray-50">{children}</main>
+        <main className="h-full p-6 bg-gray-50">{children}</main>
       </section>
     </div>
   );
