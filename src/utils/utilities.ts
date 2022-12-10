@@ -3,6 +3,11 @@ export const isBrowser = () => {
   return typeof window === "undefined";
 };
 
+/**
+ * 大驼峰
+ * @param {String} str
+ * @returns
+ */
 export const capitalizeFirstLetter = (str: string) =>
   str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
 

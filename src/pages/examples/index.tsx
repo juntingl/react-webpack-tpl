@@ -1,5 +1,12 @@
+import { Card } from "antd";
+
 const Page = () => {
-  return <h1>Examples</h1>;
+  return (
+    <Card>
+      <h1>Examples</h1>
+      <div className="h-auto" style={{ height: "800px" }}></div>
+    </Card>
+  );
 };
 
 export default Page;

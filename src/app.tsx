@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { Spin } from "antd";
-import MainLayout from "@/components/main-layout";
+import MainLayout from "@/components/MainLayout";
 import { RoutesComponent } from "./router";
 
 const App = () => {
