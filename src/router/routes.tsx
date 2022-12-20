@@ -44,6 +44,11 @@ const routes: IRoute[] = [
         title: "示例 1",
         component: lazy(() => import("@/pages/examples")),
       },
+      {
+        path: "/examples/query",
+        title: "ReactQuery",
+        component: lazy(() => import("@/pages/query")),
+      },
     ],
   },
 ];
