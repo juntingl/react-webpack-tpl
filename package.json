@@ -15,7 +15,8 @@
   "keywords": [
     "webpack5",
     "React18",
-    "TypeScript"
+    "TypeScript",
+    "ReactQuery"
   ],
   "license": "MIT",
   "homepage": "./",
@@ -85,6 +86,7 @@
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
     "react-router-dom": "^6.4.2"
   }
 }
