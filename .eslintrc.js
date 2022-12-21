@@ -31,5 +31,6 @@ module.exports = {
     // TypeScript ESLint
     "@typescript-eslint/no-non-null-assertion": 0,
     "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/ban-ts-comment": "warn",
   },
 };

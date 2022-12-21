@@ -1,5 +1,12 @@
+import PageLoading from "@/components/PageLoading";
+
 const HomePage = () => {
-  return <>Home Page.</>;
+  return (
+    <>
+      Home Page.
+      <PageLoading />
+    </>
+  );
 };
 
 export default HomePage;
