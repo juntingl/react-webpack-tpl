@@ -15,7 +15,7 @@ const FallbackComponent: React.ComponentType<
   const { response, status } = error as AxiosError;
   const serverStatus = (response?.status ?? status) || 404;
   const resultStatus = (
-    serverErrors.includes(serverStatus) ? serverStatus : "error"
+    serverErrors.includes(+serverStatus) ? serverStatus : "error"
   ) as ResultStatusType;
 
   const navigate = useNavigate();
