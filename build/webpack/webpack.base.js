@@ -18,7 +18,7 @@ module.exports = {
     ? shouldUseSourceMap
       ? "source-map"
       : false
-    : "cheap-module-source-map",
+    : "eval-cheap-module-source-map",
   entry: {
     app: paths.appIndexJS,
   },

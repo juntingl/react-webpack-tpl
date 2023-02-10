@@ -1,9 +1,8 @@
 import type { ItemType } from "antd/lib/menu/hooks/useItems";
 
-import { useCallback } from "react";
-
-import { Avatar, Dropdown, Menu, Space } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { Avatar, Dropdown, Space } from "antd";
+import { useCallback } from "react";
 
 const NavRightContent = () => {
   const onMenuClick = useCallback((event: { key: string }) => {
@@ -27,11 +26,9 @@ const NavRightContent = () => {
     },
   ];
 
-  const menu = <Menu items={menuItems} onClick={onMenuClick} />;
-
   return (
     <Space>
-      <Dropdown overlay={menu} className="pb-2.5">
+      <Dropdown menu={{ items: menuItems, onClick: onMenuClick }} className="pb-2.5">
         <span className="mr-4">
           <Avatar shape="square" size="small" icon={<UserOutlined />} />
         </span>

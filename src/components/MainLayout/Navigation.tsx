@@ -44,7 +44,7 @@ const Navigation: React.FC<{
       width={208}
       collapsedWidth={60}
       collapsed={collapsed}
-      className="sticky top-0 z-20 h-screen"
+      className="sticky top-0 z-20 min-h-screen"
     >
       <ClassNames>
         {({ cx }) => (
@@ -55,16 +55,19 @@ const Navigation: React.FC<{
         )}
       </ClassNames>
 
-      <Menu
-        theme={theme}
-        mode="inline"
-        items={items}
-        defaultOpenKeys={!collapsed ? relatedKeys : []}
-        selectedKeys={relatedKeys}
-        onSelect={(selectInfo) => {
-          navigate(selectInfo.key);
-        }}
-      />
+      <div style={{ display: "flex" }}>
+        <Menu
+          style={{ minWidth: 0, flex: "auto" }}
+          mode="inline"
+          theme={theme}
+          items={items}
+          defaultOpenKeys={!collapsed ? relatedKeys : []}
+          selectedKeys={relatedKeys}
+          onSelect={(selectInfo) => {
+            navigate(selectInfo.key);
+          }}
+        />
+      </div>
     </Layout.Sider>
   );
 };

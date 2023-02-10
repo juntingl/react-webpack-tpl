@@ -1,4 +1,4 @@
-import "global.less";
+import "./global.css";
 
 import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
