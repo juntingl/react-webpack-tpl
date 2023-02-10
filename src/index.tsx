@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import dayjs from "dayjs";
+
 import { loadable } from "./components/QuerySuspense";
+
+dayjs.locale("zh-cn");
 
 const queryClient = new QueryClient({
   defaultOptions: {

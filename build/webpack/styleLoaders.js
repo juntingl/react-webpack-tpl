@@ -52,26 +52,26 @@ module.exports = () => {
       }),
       sideEffects: true,
     },
-    {
-      test: config.lessRegex,
-      use: generatorStyleLoaders(
-        {
-          importLoaders: 3,
-          modules: {
-            mode: "icss",
-          },
-        },
-        "less-loader",
-        {
-          lessOptions: {
-            modifyVars: {
-              // "primary-color": "#ff7a45",
-            },
-            javascriptEnabled: true,
-          },
-        },
-      ),
-      sideEffects: true,
-    },
+    // {
+    //   test: config.lessRegex,
+    //   use: generatorStyleLoaders(
+    //     {
+    //       importLoaders: 3,
+    //       modules: {
+    //         mode: "icss",
+    //       },
+    //     },
+    //     "less-loader",
+    //     {
+    //       lessOptions: {
+    //         modifyVars: {
+    //           // "primary-color": "#ff7a45",
+    //         },
+    //         javascriptEnabled: true,
+    //       },
+    //     },
+    //   ),
+    //   sideEffects: true,
+    // },
   ];
 };
